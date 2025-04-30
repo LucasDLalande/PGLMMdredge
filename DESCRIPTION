@@ -1,18 +1,24 @@
-Package: senection
+Package: PGLMMdredge
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Model selection for pglmm
 Version: 0.1.0
-Authors@R: c(
-    person(
-      "Jane", "Doe",
-      email = "jane@example.com",
-      role = c("aut", "cre")
+Authors@R: person(
+      "Lucas", "Lalande",
+      email = "lalande.luke@gmail.com",
+      role = c("aut", "cre"),
+      comment = c("0000-0001-9319-8033")
     )
-  )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: This is an adaptation of the dredge function from 'MuMIn' to 
+    phylogenetic generalized linear mixed models (pglmm from 'phyr'). It 
+    generates a model selection table of models based on the dredge 
+    function from 'MuMIn' with combinations (subsets) of fixed effect terms in 
+    the global model, with optional model inclusion rules. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/LucasDLalande/senection
-BugReports: https://github.com/LucasDLalande/senection/issues
+URL: https://github.com/LucasDLalande/PGLMMdredge
+BugReports: https://github.com/LucasDLalande/PGLMMdredge/issues
+Imports: 
+    dplyr,
+    phyr
+RoxygenNote: 7.3.2
