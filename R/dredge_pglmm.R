@@ -1,4 +1,3 @@
-# Dredge function adapted ------------------------------------------------------
 #' Model selection for pglmm
 #'
 #' This is an adaptation of the dredge function from 'MuMIn' to
@@ -7,8 +6,8 @@
 #' function from 'MuMIn' with combinations (subsets) of fixed effect terms in
 #' the global model, with optional model inclusion rules.
 #'
-#' @param formulaRE A character string specifying the random effects structure (e.g., `"~ 1 + (1 | group)"`). Must include an intercept (`1`) as fixed effect.
-#' @param fixed A character vector of fixed effects to test. Interaction terms are allowed (e.g., `"log_afr:hunted"`), but some post-processing of tested models might be required.
+#' @param formulaRE A character string specifying the random effects structure (e.g., `"~ 1 + (1 | Species)"`). Must include an intercept (`1`) as fixed effect.
+#' @param fixed A character vector of fixed effects to test. Interaction terms are allowed (e.g., `"Sepal.Width:Petal.Length"`), but some post-processing of tested models might be required.
 #' @param data A data.frame containing the variables named in formula.
 #' @param rank Criterion used to rank the models. Choose either `"AIC"` (default) or `"AICc"`.
 #' @param family Distribution family to use in model fitting. Options are `"gaussian"`, `"binomial"`, or `"poisson"`.
@@ -44,7 +43,7 @@ dredge_pglmm <- function(formulaRE, fixed, data,
 
   df.RE <- nrow(fixef(mod.RE))+nrow(ranef(mod.RE)) # extracts df of null model
   logLik.RE <- mod.RE$logLik # extracts log-likelihood of the null model
-  AICc.RE <- mod.RE$AIC + ((2*df.RE^2)+2*df.RE)/(length(data)-df.RE-1) # extracts AICc of the null model
+  AICc.RE <- mod.RE$AIC + ((2*df.RE^2)+2*df.RE)/(nobs(data)-df.RE-1) # extracts AICc of the null model
   AIC.RE <- mod.RE$AIC # extracts AIC of the null model
 
   # FIXED-EFFECT MODELS
@@ -70,7 +69,7 @@ dredge_pglmm <- function(formulaRE, fixed, data,
 
       df.fix <- c(df.fix, nrow(fixef(mod.fix))+nrow(ranef(mod.fix))) # extracts df of each model
       logLik.fix <- c(logLik.fix, mod.fix$logLik) # extracts log-likelihood of each model
-      AICc.fix <- c(AICc.fix, mod.fix$AIC + ((2*(nrow(fixef(mod.fix))+nrow(ranef(mod.fix)))^2)+2*(nrow(fixef(mod.fix))+nrow(ranef(mod.fix))))/(length(data)-(nrow(fixef(mod.fix))+nrow(ranef(mod.fix)))-1)) # extracts AICc of the null model
+      AICc.fix <- c(AICc.fix, mod.fix$AIC + ((2*(nrow(fixef(mod.fix))+nrow(ranef(mod.fix)))^2)+2*(nrow(fixef(mod.fix))+nrow(ranef(mod.fix))))/(nobs(data)-(nrow(fixef(mod.fix))+nrow(ranef(mod.fix)))-1)) # extracts AICc of the null model
       AIC.fix <- c(AIC.fix, mod.fix$AIC) # extracts AIC values for fixed-effects models
 
       model_list.fix <- c(model_list.fix, list(mod.fix))

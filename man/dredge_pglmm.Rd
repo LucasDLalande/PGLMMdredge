@@ -17,9 +17,9 @@ dredge_pglmm(
 )
 }
 \arguments{
-\item{formulaRE}{A character string specifying the random effects structure (e.g., `"~ 1 + (1 | group)"`). Must include an intercept (`1`) as fixed effect.}
+\item{formulaRE}{A character string specifying the random effects structure (e.g., `"~ 1 + (1 | Species)"`). Must include an intercept (`1`) as fixed effect.}
 
-\item{fixed}{A character vector of fixed effects to test. Interaction terms are allowed (e.g., `"log_afr:hunted"`), but some post-processing of tested models might be required.}
+\item{fixed}{A character vector of fixed effects to test. Interaction terms are allowed (e.g., `"Sepal.Width:Petal.Length"`), but some post-processing of tested models might be required.}
 
 \item{data}{A data.frame containing the variables named in formula.}
 
