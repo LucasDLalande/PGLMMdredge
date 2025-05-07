@@ -4,11 +4,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of PGLMMdredge is to adaptat the `dredge` function from 'MuMIn' to phylogenetic generalized linear mixed models (`pglmm` from 'phyr'). It generates a model selection table of models as would do the `dredge` function from 'MuMIn' with combinations (subsets) of fixed effect terms in the global model, with optional model inclusion rules. 
+The goal of PGLMMdredge is to adaptat the `dredge` function from the `MuMIn` 
+package to phylogenetic generalized linear mixed models (`pglmm` from the `phyr` 
+package). It generates a model selection table of models as would do the 
+`dredge` function from `MuMIn` with combinations (subsets) of fixed effect terms 
+in the global model, with optional model inclusion rules. 
 
 ## Installation
 
-You can install the development version of PGLMMdredge from [GitHub](https://github.com/) with:
+You can install the development version of `PGLMMdredge` from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
@@ -16,8 +20,12 @@ pak::pak("LucasDLalande/PGLMMdredge")
 ```
 
 ## Usage
+The package contains a unique `dredge_pglmm` function:
 
-Define your random effects, fixed effects, data, model selection criterion, distribution family, and whether to display estimates and/or standard-errors.
+Define your random effects (`formulaRE`), fixed effects (`fixed`), data, 
+model selection criterion (AIC or AICc), distribution family (gaussian , binomial or poisson), 
+the covariance matrix of the random effects (`cov_ranef`, i.e. usually an object of class `phylo`)
+and whether to display estimates and/or standard-errors.
 ``` r
 dredge_pglmm(
   formulaRE,
@@ -31,7 +39,7 @@ dredge_pglmm(
   round = 3
 )
 ```
-It returns a data frame with ordered models and respective fixed effects structure (and estimates, standard-errors), based on AIC or AICc.
+It returns a data frame with ordered models and respective fixed effects structure (and estimates and/or standard-errors), based on AIC or AICc.
 
 ## Example
 
@@ -69,7 +77,7 @@ help(tree_ultra)
 
 ## Citation
 
-To cite the ‘PGLMMdredge’ package in your publications, please use:
+To cite the `PGLMMdredge` package in your publications, please use:
 
   Lalande LD (2025). _PGLMMdredge: A model selection for pglmm_. R package version 0.1.0,
   <https://github.com/LucasDLalande/PGLMMdredge.git>.
