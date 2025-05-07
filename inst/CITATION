@@ -1,0 +1,13 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "PGLMMdredge: A model selection for pglmm",
+  author   = person(
+      c("Lucas", "D."), "Lalande",
+      email = "lalande.luke@gmail.com",
+      role = c("aut", "cre"),
+      comment = c("0000-0001-9319-8033")
+    ),
+  year     = 2025,
+  note     = "R package version 0.1.0",
+  url      = "https://github.com/LucasDLalande/PGLMMdredge.git"
+)

@@ -3,7 +3,7 @@ Type: Package
 Title: Model selection for pglmm
 Version: 0.1.0
 Authors@R: person(
-      "Lucas", "Lalande",
+      c("Lucas", "D."), "Lalande",
       email = "lalande.luke@gmail.com",
       role = c("aut", "cre"),
       comment = c("0000-0001-9319-8033")
@@ -19,6 +19,13 @@ LazyData: true
 URL: https://github.com/LucasDLalande/PGLMMdredge
 BugReports: https://github.com/LucasDLalande/PGLMMdredge/issues
 Imports: 
-    dplyr,
-    phyr
+    lme4,
+    phyr,
+    stringr
+Suggests: 
+    ape, 
+    phylobase,
+    phytools
 RoxygenNote: 7.3.2
+Depends: 
+    R (>= 3.5)

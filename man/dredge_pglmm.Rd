@@ -17,15 +17,15 @@ dredge_pglmm(
 )
 }
 \arguments{
-\item{formulaRE}{A character string specifying the random effects structure (e.g., `"~ 1 + (1 | Species)"`). Must include an intercept (`1`) as fixed effect.}
+\item{formulaRE}{A character string specifying the random effects structure (e.g., "~ 1 + (1 | Species)"). Must include an intercept (`1`) as fixed effect.}
 
-\item{fixed}{A character vector of fixed effects to test. Interaction terms are allowed (e.g., `"Sepal.Width:Petal.Length"`), but some post-processing of tested models might be required.}
+\item{fixed}{A character vector of fixed effects to test. Interaction terms are allowed (e.g., "Sepal.Width:Petal.Length"), but some post-processing of tested models might be required.}
 
 \item{data}{A data.frame containing the variables named in formula.}
 
-\item{rank}{Criterion used to rank the models. Choose either `"AIC"` (default) or `"AICc"`.}
+\item{rank}{Criterion used to rank the models. Choose either "AIC" (default) or "AICc".}
 
-\item{family}{Distribution family to use in model fitting. Options are `"gaussian"`, `"binomial"`, or `"poisson"`.}
+\item{family}{Distribution family to use in model fitting. Options are "gaussian", "binomial", or "poisson".}
 
 \item{cov_ranef}{A named list of covariance matrices of random terms. The names should be the group variables that are used as random terms with specified covariance matrices (without the two underscores, e.g. list(sp = tree1, site = tree2)). The actual object can be either a phylogeny with class "phylo" or a prepared covariance matrix. If it is a phylogeny, pglmm will prune it and then convert it to a covariance matrix assuming Brownian motion evolution. pglmm will also standardize all covariance matrices to have determinant of one. Group variables will be converted to factors and all covariance matrices will be rearranged so that rows and columns are in the same order as the levels of their corresponding group variables.}
 
@@ -46,11 +46,17 @@ function from 'MuMIn' with combinations (subsets) of fixed effect terms in
 the global model, with optional model inclusion rules.
 }
 \examples{
+
+mod1 <- phyr::pglmm(log_onset ~ 1 + (1|Species__),
+                  data = senescence, family = "gaussian", cov_ranef = list(Species = tree_ultra),
+                  REML = TRUE, verbose = FALSE, s2.init = .1)
+
 dredge_pglmm(
-   formulaRE = "Sepal.Length ~ 1 + (1 | Species)",
-   fixed = c("Sepal.Width", "Petal.Length", "Sepal.Width:Petal.Length"),
-   data = iris,
-   rank = "AIC",
-   family = "gaussian"
+       formulaRE = "log_onset ~ 1 + (1 | Species)",
+       fixed = c("log_afr", "log_mass"),
+       data = senescence,
+       rank = "AICc",
+       family = "gaussian",
+       cov_ranef = list(Species = tree_ultra)
  )
 }
