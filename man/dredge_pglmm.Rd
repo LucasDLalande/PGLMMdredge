@@ -39,10 +39,10 @@ dredge_pglmm(
 A data frame summarizing model selection results, ranked by the chosen criterion.
 }
 \description{
-This is an adaptation of the dredge function from 'MuMIn' to
-phylogenetic generalized linear mixed models (pglmm from 'phyr'). It
-generates a model selection table of models based on the dredge
-function from 'MuMIn' with combinations (subsets) of fixed effect terms in
+This is an adaptation of the \code{dredge} function from the \code{MuMIn} package to
+phylogenetic generalized linear mixed models (\code{pglmm} from the \code{phyr}). It
+generates a model selection table of models as would do the \code{dredge}
+function from \code{MuMIn} with combinations (subsets) of fixed effect terms in
 the global model, with optional model inclusion rules.
 }
 \examples{

@@ -1,9 +1,9 @@
 #' Model selection for pglmm
 #'
-#' This is an adaptation of the dredge function from 'MuMIn' to
-#' phylogenetic generalized linear mixed models (pglmm from 'phyr'). It
-#' generates a model selection table of models based on the dredge
-#' function from 'MuMIn' with combinations (subsets) of fixed effect terms in
+#' This is an adaptation of the \code{dredge} function from the \code{MuMIn} package to
+#' phylogenetic generalized linear mixed models (\code{pglmm} from the \code{phyr}). It
+#' generates a model selection table of models as would do the \code{dredge}
+#' function from \code{MuMIn} with combinations (subsets) of fixed effect terms in
 #' the global model, with optional model inclusion rules.
 #'
 #' @param formulaRE A character string specifying the random effects structure (e.g., "~ 1 + (1 | Species)"). Must include an intercept (`1`) as fixed effect.

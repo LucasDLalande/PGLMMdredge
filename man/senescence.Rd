@@ -5,7 +5,6 @@
 \alias{senescence}
 \title{Senescence data}
 \format{
-## `senescence`
 A data frame with 33 rows and 4 columns:
 \describe{
   \item{Species}{Species name (capital letters: A, B, C, ..., AG)}
