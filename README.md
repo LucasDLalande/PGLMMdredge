@@ -53,4 +53,9 @@ dredge_pglmm(
         cov_ranef = list(Species = tree_ultra)
 )
 ```
+## Citation
 
+To cite the ‘PGLMMdredge’ package in your publications, please use:
+
+  Lalande LD (2025). _PGLMMdredge: A model selection for pglmm_. R package version 0.1.0,
+  <https://github.com/LucasDLalande/PGLMMdredge.git>.
