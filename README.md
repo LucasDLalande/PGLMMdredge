@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of PGLMMdredge is to adaptat the dredge function from 'MuMIn' to phylogenetic generalized linear mixed models (pglmm from 'phyr'). It generates a model selection table of models based on the dredge function from 'MuMIn' with combinations (subsets) of fixed effect terms in the global model, with optional model inclusion rules. 
+The goal of PGLMMdredge is to adaptat the dredge function from 'MuMIn' to phylogenetic generalized linear mixed models (pglmm from 'phyr'). It generates a model selection table of models as would do the dredge function from 'MuMIn' with combinations (subsets) of fixed effect terms in the global model, with optional model inclusion rules. 
 
 ## Installation
 
@@ -35,17 +35,22 @@ It returns a data frame with ordered models and respective fixed effects structu
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example using simulated package data (see documentation for the 'senescence' dataset and 'tree_ultra' ultrametric phylogenetic tree)
 
 ``` r
-library(PGLMMdredge)
-## basic example code using iris dataset
+# Write the null model using pglmm() from 'phyr'
+mod1 <- pglmm(log_onset ~ 1 + (1|Species__),
+             data = senescence, family = "gaussian", cov_ranef = list(Species = tree_ultra),
+             REML = TRUE, verbose = FALSE, s2.init = .1)
+
+# Returns a model selection table based on the null model and evaluating all possible models based on the fixed effect structure provided
 dredge_pglmm(
-   formulaRE = "Sepal.Length ~ 1 + (1 | Species)",
-   fixed = c("Sepal.Width", "Petal.Length", "Sepal.Width:Petal.Length"),
-   data = iris,
-   rank = "AIC",
-   family = "gaussian"
- )
+        formulaRE = "log_onset ~ 1 + (1 | Species)",
+        fixed = c("log_afr", "log_mass"),
+        data = senescence,
+        rank = "AICc",
+        family = "gaussian",
+        cov_ranef = list(Species = tree_ultra)
+)
 ```
 
