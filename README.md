@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of PGLMMdredge is to adaptat the dredge function from 'MuMIn' to phylogenetic generalized linear mixed models (pglmm from 'phyr'). It generates a model selection table of models as would do the dredge function from 'MuMIn' with combinations (subsets) of fixed effect terms in the global model, with optional model inclusion rules. 
+The goal of PGLMMdredge is to adaptat the `dredge` function from 'MuMIn' to phylogenetic generalized linear mixed models (`pglmm` from 'phyr'). It generates a model selection table of models as would do the `dredge` function from 'MuMIn' with combinations (subsets) of fixed effect terms in the global model, with optional model inclusion rules. 
 
 ## Installation
 
@@ -35,7 +35,7 @@ It returns a data frame with ordered models and respective fixed effects structu
 
 ## Example
 
-This is a basic example using simulated package data (see documentation for the 'senescence' dataset and 'tree_ultra' ultrametric phylogenetic tree)
+This is a basic example using simulated package data 
 
 ``` r
 # Write the null model using pglmm() from 'phyr'
@@ -53,6 +53,20 @@ dredge_pglmm(
         cov_ranef = list(Species = tree_ultra)
 )
 ```
+## Data documentation
+`senescence` is a simulated dataset that provides age at first reproduction
+(logarithm), onset of senescence (logarithm) and body mass (logarithm) for
+33 species. See more details using:
+``` r
+help(senescence)
+```
+
+`tree_ultra` is an ultrametric phylogenetic tree (object of class `phylo`) 
+representing evolutionary distances among 33 species. See more details using:
+``` r
+help(tree_ultra)
+```
+
 ## Citation
 
 To cite the ‘PGLMMdredge’ package in your publications, please use:
