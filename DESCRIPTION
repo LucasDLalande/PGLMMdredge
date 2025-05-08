@@ -1,6 +1,6 @@
-Package: PGLMMdredge
+Package: selectools
 Type: Package
-Title: Model selection for pglmm
+Title: A facilitating model selection procedure
 Version: 0.1.0
 Authors@R: person(
       c("Lucas", "D."), "Lalande",
@@ -8,16 +8,23 @@ Authors@R: person(
       role = c("aut", "cre"),
       comment = c("0000-0001-9319-8033")
     )
-Description: This is an adaptation of the dredge function from 'MuMIn' to 
-    phylogenetic generalized linear mixed models (pglmm from 'phyr'). It 
-    generates a model selection table of models based on the dredge 
-    function from 'MuMIn' with combinations (subsets) of fixed effect terms in 
-    the global model, with optional model inclusion rules. 
+Description: The goal of 'selectools' is to provide and facilitate model selection procedures, 
+    mostly based on AIC and AICc, and adapting the 'dredge' function from the 'MuMIn' 
+    package. 'selectools' contains a unique (for now) function ('pglmm_dredge') that can 
+    be used to perform model selection of phylogenetic generalized linear mixed 
+    models ('pglmm' from the 'phyr' package). It generates a model selection table 
+    of models as would do the 'dredge' function from 'MuMIn' with combinations 
+    (subsets) of fixed effect terms in the global model, with optional model 
+    inclusion rules.
+    Future development include functions designed for the model selection when 
+    testing different trajectories as can be done in senescence research, by 
+    automatically computing, testing, comparing and ranking constant, linear, 
+    quadratic or threshold trajectories. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/LucasDLalande/PGLMMdredge
-BugReports: https://github.com/LucasDLalande/PGLMMdredge/issues
+URL: https://github.com/LucasDLalande/selectools
+BugReports: https://github.com/LucasDLalande/selectools/issues
 Imports: 
     lme4,
     phyr,

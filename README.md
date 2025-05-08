@@ -1,22 +1,25 @@
 
-# PGLMMdredge
+# selectools
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of PGLMMdredge is to adaptat the `dredge` function from the `MuMIn` 
-package to phylogenetic generalized linear mixed models (`pglmm` from the `phyr` 
-package). It generates a model selection table of models as would do the 
-`dredge` function from `MuMIn` with combinations (subsets) of fixed effect terms 
-in the global model, with optional model inclusion rules. 
+The goal of `selectools` is to provide and facilitate model selection procedures, 
+mostly based on AIC and AICc, and adapting the `dredge` function from the `MuMIn` 
+package. `selectools` contains a unique (for now) function (`pglmm_dredge`) that can 
+be used to perform model selection of phylogenetic generalized linear mixed 
+models (`pglmm` from the `phyr` package). It generates a model selection table 
+of models as would do the `dredge` function from `MuMIn` with combinations 
+(subsets) of fixed effect terms in the global model, with optional model 
+inclusion rules. 
 
 ## Installation
 
-You can install the development version of `PGLMMdredge` from [GitHub](https://github.com/) with:
+You can install the development version of `selectools` from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("LucasDLalande/PGLMMdredge")
+pak::pak("LucasDLalande/selectools")
 ```
 
 ## Usage
@@ -43,7 +46,7 @@ It returns a data frame with ordered models and respective fixed effects structu
 
 ## Example
 
-This is a basic example using simulated package data 
+This is a basic example of the `dredge_pglmm` function using simulated package data 
 
 ``` r
 # Write the null model using pglmm() from 'phyr'
@@ -75,9 +78,16 @@ representing evolutionary distances among 33 species. See more details using:
 help(tree_ultra)
 ```
 
+## Future development
+
+`selectools` will shortly a function designed for trajectory model selection. 
+It will be particularly suited for the model selection of several trajectories as can be done in
+senescence research, by automatically computing, testing, comparing and ranking 
+constant, linear, quadratic or threshold trajectories. 
+
 ## Citation
 
-To cite the `PGLMMdredge` package in your publications, please use:
+To cite the `selectools` package in your publications, please use:
 
-  Lalande LD (2025). _PGLMMdredge: A model selection for pglmm_. R package version 0.1.0,
-  <https://github.com/LucasDLalande/PGLMMdredge.git>.
+  Lalande LD (2025). _selectools: A facilitating model selection procedure_. R package version 0.1.0, 
+  <https://github.com/LucasDLalande/selectools.git>.

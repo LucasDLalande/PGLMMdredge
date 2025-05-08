@@ -1,6 +1,6 @@
 bibentry(
   bibtype  = "Manual",
-  title    = "PGLMMdredge: A model selection for pglmm",
+  title    = "selectools: A facilitating model selection procedure",
   author   = person(
       c("Lucas", "D."), "Lalande",
       email = "lalande.luke@gmail.com",
@@ -9,5 +9,5 @@ bibentry(
     ),
   year     = 2025,
   note     = "R package version 0.1.0",
-  url      = "https://github.com/LucasDLalande/PGLMMdredge.git"
+  url      = "https://github.com/LucasDLalande/selectools.git"
 )
