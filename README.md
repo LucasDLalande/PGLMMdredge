@@ -80,7 +80,7 @@ help(tree_ultra)
 
 ## Future development
 
-`selectools` will shortly a function designed for trajectory model selection. 
+`selectools` will shortly include a function designed for trajectory model selection. 
 It will be particularly suited for the model selection of several trajectories as can be done in
 senescence research, by automatically computing, testing, comparing and ranking 
 constant, linear, quadratic or threshold trajectories. 
